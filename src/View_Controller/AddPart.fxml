@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<VBox prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="443.0" prefWidth="400.0" style="-fx-background-color: #bae3df; -fx-border-color: black;" VBox.vgrow="ALWAYS">
+            <children>
+                <Label alignment="CENTER" layoutX="63.0" layoutY="31.0" prefHeight="34.0" prefWidth="100.0" style="-fx-border-color: black; -fx-background-color: #c4864f;" text="Add Part" AnchorPane.leftAnchor="63.0" AnchorPane.topAnchor="31.0">
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font>
+                </Label>
+                <RadioButton fx:id="inHouse" layoutX="267.0" layoutY="31.0" mnemonicParsing="false" onMouseClicked="#selectInHouse" selected="true" text="In-House">
+                    <toggleGroup>
+                        <ToggleGroup fx:id="partType" />
+                    </toggleGroup>
+                </RadioButton>
+                <RadioButton fx:id="outsourced" layoutX="267.0" layoutY="62.0" mnemonicParsing="false" onMouseClicked="#selectOutsourced" text="Outsourced" toggleGroup="$partType" />
+                <GridPane hgap="15.0" layoutX="40.0" layoutY="93.0" vgap="15.0" AnchorPane.leftAnchor="15.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="NEVER" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="NEVER" maxWidth="25.0" minWidth="25.0" prefWidth="25.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="TOP" text="ID" GridPane.halignment="RIGHT" />
+                        <TextField fx:id="id" disable="true" editable="false" GridPane.columnIndex="1" />
+                        <TextField fx:id="name" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <effect>
+                        <InnerShadow offsetX="-2.0" offsetY="-2.0">
+                           <color>
+                              <Color opacity="0.5" />
+                           </color>
+                        </InnerShadow>
+                     </effect></TextField>
+                        <TextField fx:id="stock" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <effect>
+                        <InnerShadow offsetX="-2.0" offsetY="-2.0">
+                           <color>
+                              <Color opacity="0.5" />
+                           </color>
+                        </InnerShadow>
+                     </effect></TextField>
+                        <TextField fx:id="price" promptText="Ex. 0.00" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <effect>
+                        <InnerShadow offsetX="-2.0" offsetY="-2.0">
+                           <color>
+                              <Color opacity="0.5" />
+                           </color>
+                        </InnerShadow>
+                     </effect></TextField>
+                        <TextField fx:id="min" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <effect>
+                        <InnerShadow offsetX="-2.0" offsetY="-2.0">
+                           <color>
+                              <Color opacity="0.5" />
+                           </color>
+                        </InnerShadow>
+                     </effect></TextField>
+                        <TextField fx:id="partSource" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                     <effect>
+                        <InnerShadow offsetX="-2.0" offsetY="-2.0">
+                           <color>
+                              <Color opacity="0.5" />
+                           </color>
+                        </InnerShadow>
+                     </effect></TextField>
+                        <TextField fx:id="max" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                     <effect>
+                        <InnerShadow offsetX="-2.0" offsetY="-2.0">
+                           <color>
+                              <Color opacity="0.5" />
+                           </color>
+                        </InnerShadow>
+                     </effect></TextField>
+                        <Label text="Name" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                        <Label text="Inventory" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+                        <Label text="Price/Cost" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+                        <Label text="Min" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
+                        <Label fx:id="partSourceLabel" text="Machine ID" GridPane.halignment="RIGHT" GridPane.rowIndex="5" />
+                        <Label text="Max" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="4" />
+                    </children>
+                </GridPane>
+                <Button fx:id="saveNewPart" layoutX="282.0" layoutY="404.0" mnemonicParsing="false" onMouseClicked="#savePart" text="Save">
+               <effect>
+                  <DropShadow offsetX="2.0" offsetY="2.0">
+                     <color>
+                        <Color opacity="0.5" />
+                     </color>
+                  </DropShadow>
+               </effect></Button>
+                <Button fx:id="cancel" layoutX="336.0" layoutY="404.0" mnemonicParsing="false" onMouseClicked="#partCancel" text="Cancel">
+               <effect>
+                  <DropShadow offsetX="2.0" offsetY="2.0">
+                     <color>
+                        <Color opacity="0.5" />
+                     </color>
+                  </DropShadow>
+               </effect></Button>
+            </children>
+        </AnchorPane>
+    </children>
+</VBox>

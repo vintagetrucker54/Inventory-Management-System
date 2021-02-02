@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+  This file is available and licensed under the following license:
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<VBox prefHeight="480.0" prefWidth="1062.0" style="-fx-background-color: #bae3df;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <AnchorPane prefHeight="34.0" prefWidth="1062.0" style="-fx-background-color: #bae3df;">
+            <children>
+                <Label alignment="CENTER" layoutX="350.0" layoutY="19.0" prefHeight="38.0" prefWidth="366.0" style="-fx-border-color: black; -fx-background-color: #c4864f;" text="Inventory Management System">
+                    <font>
+                        <Font size="24.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+        <HBox fx:id="mainHBox" prefHeight="354.0" prefWidth="1062.0" spacing="30.0" style="-fx-background-color: #bae3df;">
+            <children>
+                <AnchorPane fx:id="partPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="354.0" prefWidth="502.0" style="-fx-background-color: #c4864f; -fx-border-color: #404040;">
+                    <children>
+                        <Label alignment="CENTER" layoutX="87.0" layoutY="13.0" prefHeight="30.0" prefWidth="103.0" style="-fx-background-color: white; -fx-border-color: black;" text="Parts" AnchorPane.leftAnchor="87.0" AnchorPane.topAnchor="13.0">
+                     <font>
+                        <Font name="Lucida Console" size="18.0" />
+                     </font>
+                  </Label>
+                        <TextField fx:id="partSearchField" alignment="CENTER" layoutX="169.0" layoutY="32.0" onKeyTyped="#searchPart" promptText="Search Parts" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0" />
+                        <Button fx:id="partAddButton" layoutX="206.0" layoutY="249.0" mnemonicParsing="false" onMouseClicked="#addPart" text="Add" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="150.0">
+                     <effect>
+                        <DropShadow offsetX="2.0" offsetY="2.0" radius="12.98" width="32.92">
+                           <color>
+                              <Color opacity="0.5" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Button>
+                        <Button fx:id="partModifyButton" layoutX="260.0" layoutY="249.0" mnemonicParsing="false" onMouseClicked="#modifyPart" text="Modify" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="80.0">
+                     <effect>
+                        <DropShadow offsetX="2.0" offsetY="2.0">
+                           <color>
+                              <Color opacity="0.5" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Button>
+                        <Button fx:id="partDeleteButton" layoutX="329.0" layoutY="249.0" mnemonicParsing="false" onMouseClicked="#deletePart" text="Delete" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="15.0">
+                     <effect>
+                        <DropShadow offsetX="2.0" offsetY="2.0">
+                           <color>
+                              <Color opacity="0.5" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Button>
+                        <TableView fx:id="partTableView" layoutX="16.0" layoutY="51.0" prefHeight="192.0" prefWidth="374.0" AnchorPane.bottomAnchor="51.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="51.0">
+                            <columns>
+                                <TableColumn id="id" fx:id="partIdColumn" editable="false" prefWidth="71.0" text="Part ID">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="id" />
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn id="name" fx:id="partNameColumn" editable="false" prefWidth="155.0" text="Part Name">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="name" />
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn editable="false" prefWidth="108.0" text="Inventory Level">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="stock" />
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn editable="false" prefWidth="133.0" text="Price / Cost per Unit">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="price" />
+                                    </cellValueFactory>
+                                </TableColumn>
+                            </columns>
+                        </TableView>
+                    </children>
+                </AnchorPane>
+                <AnchorPane fx:id="productPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="354.0" prefWidth="502.0" style="-fx-background-color: #c4864f; -fx-border-color: #404040;">
+                    <children>
+                        <Label alignment="CENTER" layoutX="88.0" layoutY="13.0" prefHeight="30.0" prefWidth="103.0" style="-fx-background-color: white; -fx-border-color: black;" text="Products" AnchorPane.leftAnchor="88.0" AnchorPane.topAnchor="13.0">
+                     <font>
+                        <Font name="Lucida Console" size="18.0" />
+                     </font>
+                  </Label>
+                        <TextField fx:id="productSearchField" alignment="CENTER" layoutX="169.0" layoutY="32.0" onKeyTyped="#searchProduct" promptText="Search Products" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0" />
+                        <Button fx:id="productAddButton" layoutX="206.0" layoutY="249.0" mnemonicParsing="false" onMouseClicked="#addProduct" text="Add" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="150.0">
+                     <effect>
+                        <DropShadow offsetX="2.0" offsetY="2.0">
+                           <color>
+                              <Color opacity="0.5" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Button>
+                        <Button fx:id="productModifyButton" layoutX="260.0" layoutY="249.0" mnemonicParsing="false" onMouseClicked="#modifyProduct" text="Modify" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="80.0">
+                     <effect>
+                        <DropShadow offsetX="2.0" offsetY="2.0">
+                           <color>
+                              <Color opacity="0.5" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Button>
+                        <Button fx:id="productDeleteButton" layoutX="329.0" layoutY="249.0" mnemonicParsing="false" onMouseClicked="#deleteProduct" text="Delete" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="15.0">
+                     <effect>
+                        <DropShadow offsetX="2.0" offsetY="2.0">
+                           <color>
+                              <Color opacity="0.5" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Button>
+                        <TableView fx:id="productTableView" layoutX="14.0" layoutY="56.0" prefHeight="192.0" prefWidth="481.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="50.0">
+                            <columns>
+                                <TableColumn editable="false" prefWidth="74.0" text="Product ID">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="id" />
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn editable="false" prefWidth="155.0" text="Product Name">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="name" />
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn editable="false" minWidth="0.0" prefWidth="110.0" text="Inventory Level">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="stock" />
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn editable="false" prefWidth="128.0" text="Price / Cost per Unit">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="price" />
+                                    </cellValueFactory>
+                                </TableColumn>
+                            </columns>
+                        </TableView>
+                    </children>
+                </AnchorPane>
+            </children>
+            <VBox.margin>
+                <Insets left="15.0" right="15.0" top="15.0" />
+            </VBox.margin>
+        </HBox>
+        <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="50.0" prefWidth="1062.0" style="-fx-background-color: #bae3df;" VBox.vgrow="ALWAYS">
+            <children>
+                <Button fx:id="exitAppButton" layoutX="1001.0" layoutY="12.0" mnemonicParsing="false" onMouseClicked="#exitApplication" prefHeight="26.0" prefWidth="50.0" text="Exit" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="15.0">
+               <effect>
+                  <DropShadow offsetX="2.0" offsetY="2.0">
+                     <color>
+                        <Color opacity="0.5" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            </children>
+            <VBox.margin>
+                <Insets />
+            </VBox.margin>
+        </AnchorPane>
+    </children>
+</VBox>
